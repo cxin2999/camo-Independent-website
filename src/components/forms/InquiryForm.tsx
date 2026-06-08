@@ -21,6 +21,7 @@ const productOptions = [
 
 export function InquiryForm({ compact, sourcePage, title }: InquiryFormProps) {
   const startedAtRef = useRef<number | null>(null);
+  const isSubmittingRef = useRef(false);
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string[]>>({});
@@ -31,35 +32,46 @@ export function InquiryForm({ compact, sourcePage, title }: InquiryFormProps) {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (isSubmittingRef.current) return;
+
     const form = event.currentTarget;
+    isSubmittingRef.current = true;
     setState("loading");
     setMessage("");
     setErrors({});
 
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+    try {
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
 
-    const response = await fetch("/api/inquiry", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...payload,
-        sourcePage,
-        startedAt: startedAtRef.current
-      })
-    });
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...payload,
+          sourcePage,
+          startedAt: startedAtRef.current
+        })
+      });
 
-    const data = await response.json();
-    if (!response.ok) {
+      const data = await response.json();
+      if (!response.ok) {
+        setState("error");
+        setMessage(data.message || "Please check your information and try again.");
+        setErrors(data.errors || {});
+        return;
+      }
+
+      setState("success");
+      setMessage(data.message);
+      form.reset();
+      startedAtRef.current = Date.now();
+    } catch {
       setState("error");
-      setMessage(data.message || "Please check your information and try again.");
-      setErrors(data.errors || {});
-      return;
+      setMessage("We could not send your inquiry. Please try again.");
+    } finally {
+      isSubmittingRef.current = false;
     }
-
-    setState("success");
-    setMessage(data.message);
-    form.reset();
   }
 
   return (
@@ -111,7 +123,7 @@ export function InquiryForm({ compact, sourcePage, title }: InquiryFormProps) {
       </div>
 
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <Button type="submit" className="w-full sm:w-auto">
+        <Button type="submit" className="w-full sm:w-auto" disabled={state === "loading"}>
           {state === "loading" ? "Sending" : compact ? "Get Material Quote" : "Send Inquiry"}
         </Button>
         <p className="text-sm text-[var(--muted)]">Reference images can be sent by email after first contact.</p>

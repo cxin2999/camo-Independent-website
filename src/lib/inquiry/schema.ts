@@ -11,7 +11,7 @@ export const inquirySchema = z.object({
   widthThickness: z.string().trim().max(140).optional().or(z.literal("")),
   quantity: z.string().trim().min(1, "Quantity is required").max(80),
   backingType: z.string().trim().max(120).optional().or(z.literal("")),
-  message: z.string().trim().min(10, "Please add a short requirement").max(2000),
+  message: z.string().trim().min(4, "Please add a short requirement").max(2000),
   sourcePage: z.string().trim().max(160).optional().or(z.literal("")),
   website: z.string().max(0, "Spam check failed").optional().or(z.literal("")),
   startedAt: z.coerce.number().optional()

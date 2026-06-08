@@ -9,6 +9,7 @@ type ButtonProps = {
   variant?: "primary" | "secondary" | "dark" | "quiet";
   className?: string;
   type?: "button" | "submit";
+  disabled?: boolean;
 };
 
 const variants = {
@@ -27,11 +28,13 @@ export function Button({
   children,
   variant = "primary",
   className,
-  type = "button"
+  type = "button",
+  disabled
 }: ButtonProps) {
   const classes = cn(
     "focus-ring inline-flex h-11 items-center justify-center gap-2 rounded-[4px] border px-5 text-xs font-bold uppercase tracking-[0.08em] transition duration-300 active:translate-y-px",
     variants[variant],
+    disabled && "cursor-not-allowed opacity-60 active:translate-y-0",
     className
   );
 
@@ -45,7 +48,7 @@ export function Button({
   }
 
   return (
-    <button type={type} className={classes}>
+    <button type={type} className={classes} disabled={disabled}>
       <span>{children}</span>
       <ArrowRight size={16} weight="bold" />
     </button>
