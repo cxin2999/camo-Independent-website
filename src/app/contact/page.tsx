@@ -23,7 +23,7 @@ const contactCards = [
   },
   { label: "Phone", value: site.phone, href: `tel:${site.phone}`, icon: Phone },
   { label: "Address", value: site.address, href: null, icon: MapPin },
-  { label: "Business Hours", value: "Mon-Fri, 09:00-18:00 China Time", href: null, icon: Clock }
+  { label: "Business Hours", value: "Mon-Fri, 07:00-22:00 China Time", href: null, icon: Clock }
 ];
 
 export default function ContactPage() {
