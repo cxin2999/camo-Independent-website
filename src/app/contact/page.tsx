@@ -14,7 +14,13 @@ export const metadata: Metadata = {
 
 const contactCards = [
   { label: "Email", value: site.email, href: `mailto:${site.email}`, icon: EnvelopeSimple },
-  { label: "WhatsApp", value: site.whatsapp, href: `https://wa.me/${site.whatsapp.replace(/\D/g, "")}`, icon: WhatsappLogo },
+  {
+    label: "WhatsApp",
+    value: site.whatsapp,
+    href: `https://wa.me/${site.whatsapp.replace(/\D/g, "")}`,
+    icon: WhatsappLogo,
+    openInNewTab: true
+  },
   { label: "Phone", value: site.phone, href: `tel:${site.phone}`, icon: Phone },
   { label: "Address", value: site.address, href: null, icon: MapPin },
   { label: "Business Hours", value: "Mon-Fri, 09:00-18:00 China Time", href: null, icon: Clock }
@@ -54,7 +60,12 @@ export default function ContactPage() {
               );
 
               return card.href ? (
-                <a key={card.label} href={card.href}>
+                <a
+                  key={card.label}
+                  href={card.href}
+                  target={card.openInNewTab ? "_blank" : undefined}
+                  rel={card.openInNewTab ? "noopener noreferrer" : undefined}
+                >
                   {content}
                 </a>
               ) : (

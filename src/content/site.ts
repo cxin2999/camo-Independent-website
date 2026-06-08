@@ -2,10 +2,10 @@ export const site = {
   name: "TacticalTex Materials",
   shortName: "TacticalTex",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
-  email: "sales@example.com",
-  whatsapp: "+86 188 0000 0000",
-  phone: "+86 755 0000 0000",
-  address: "Guangdong Textile Industrial Zone, China",
+  email: "vickyelaine61@gmail.com",
+  whatsapp: "+86 155 2760 5359",
+  phone: "+86 155 2760 5359",
+  address: "Luming Technology Co., Ltd., No. 18 Gaobu Avenue, Dongguan City, Guangdong Province",
   tagline: "Camo Hook and Loop Fabric Manufacturer",
   disclaimer:
     "Material supplier only. Finished tactical products shown for application reference."

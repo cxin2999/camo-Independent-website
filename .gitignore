@@ -41,3 +41,6 @@ coverage/
 playwright-report/
 test-results/
 /.idea/
+
+# Local Netlify folder
+.netlify

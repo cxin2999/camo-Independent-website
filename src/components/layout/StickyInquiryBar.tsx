@@ -9,6 +9,8 @@ export function StickyInquiryBar() {
         <a
           aria-label="WhatsApp"
           href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex h-12 w-12 items-center justify-center border-b border-white/10 transition hover:bg-[var(--olive)]"
         >
           <WhatsappLogo size={22} />
