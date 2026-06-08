@@ -27,9 +27,9 @@ export const products: Product[] = [
     category: "Roll Material",
     shortDescription:
       "Main camouflage loop fabric roll material for tactical gear factories, patch zones, uniform panels, bags, and outdoor equipment.",
-    image: "/images/products/camo-loop-fabric-roll.png",
+    image: "/images/products/camo-loop-fabric-roll.jpg",
     gallery: [
-      "/images/products/camo-loop-fabric-roll.png",
+      "/images/products/camo-loop-fabric-roll.jpg",
       "/images/patterns/woodland.png",
       "/images/patterns/digital.png"
     ],

@@ -40,3 +40,4 @@ soho/
 coverage/
 playwright-report/
 test-results/
+/.idea/

@@ -183,7 +183,7 @@ function applicationAsset(palette, seed) {
 }
 
 const files = [
-  ["public/images/products/camo-loop-fabric-roll.png", 1200, 820, rollAsset],
+  ["public/images/products/camo-loop-fabric-roll.jpg", 1200, 820, rollAsset],
   ["public/images/products/adhesive-backed-camo-loop-fabric.png", 900, 680, camo(palettes.desert, 6)],
   ["public/images/products/laminated-camo-hook-loop-fabric.png", 900, 680, camo(palettes.digital, 9)],
   ["public/images/products/custom-camouflage-loop-fabric.png", 900, 680, camo(palettes.jungle, 12)],

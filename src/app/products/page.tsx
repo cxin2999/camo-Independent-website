@@ -64,7 +64,7 @@ export default function ProductsPage() {
             </div>
           </div>
           <MaterialImage
-            src="/images/products/camo-loop-fabric-roll.png"
+            src="/images/products/camo-loop-fabric-roll.jpg"
             alt="Camouflage hook and loop fabric product roll"
             className="aspect-[16/10] border border-white/15"
             priority
