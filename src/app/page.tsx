@@ -34,7 +34,7 @@ export default function HomePage() {
     <>
       <section className="relative min-h-[calc(100dvh-4rem)] overflow-hidden bg-[var(--charcoal)] text-white">
         <Image
-          src="/images/products/camo-loop-fabric-roll.png"
+          src="/images/products/camo-loop-fabric-roll.jpg"
           alt="Camouflage felt hook and loop fabric roll material"
           fill
           priority
@@ -111,7 +111,7 @@ export default function HomePage() {
               Start Customization
             </Button>
           </div>
-          <PatternCatalog />
+          <PatternCatalog includeMilitaryPatterns />
         </Container>
       </section>
 

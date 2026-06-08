@@ -82,7 +82,7 @@ export default function CustomizationPage() {
         </Container>
       </section>
 
-      <section className="page-section bg-[var(--surface)]">
+      <section className="page-section surface-grid">
         <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeader
             eyebrow="Custom inquiry"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -20,10 +20,14 @@ const productOptions = [
 ];
 
 export function InquiryForm({ compact, sourcePage, title }: InquiryFormProps) {
-  const startedAt = useMemo(() => Date.now(), []);
+  const startedAtRef = useRef<number | null>(null);
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string[]>>({});
+
+  useEffect(() => {
+    startedAtRef.current = Date.now();
+  }, []);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,7 +44,7 @@ export function InquiryForm({ compact, sourcePage, title }: InquiryFormProps) {
       body: JSON.stringify({
         ...payload,
         sourcePage,
-        startedAt
+        startedAt: startedAtRef.current
       })
     });
 

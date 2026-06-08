@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   },
   description:
     "Factory supply of custom camouflage felt hook and loop fabric material for tactical gear, patches, uniforms, helmet covers, bags, and outdoor equipment.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico"
+  },
   openGraph: {
     title: "Camouflage Felt Hook and Loop Fabric Manufacturer",
     description:

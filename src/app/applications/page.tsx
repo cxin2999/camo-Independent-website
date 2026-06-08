@@ -11,7 +11,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Applications for Camouflage Hook and Loop Fabric",
   description:
-    "Camouflage hook and loop fabric applications for tactical gear, military uniforms, tactical patches, helmet covers, and hunting equipment."
+    "Camouflage hook and loop fabric applications for tactical gear, military uniforms, patches, helmet covers, and hunting equipment."
 };
 
 export default function ApplicationsPage() {
@@ -79,7 +79,7 @@ export default function ApplicationsPage() {
         </Container>
       </section>
 
-      <section className="page-section bg-[var(--surface)]">
+      <section className="page-section surface-grid">
         <Container className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <SectionHeader
             eyebrow="Application inquiry"

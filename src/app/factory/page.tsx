@@ -31,7 +31,7 @@ export default function FactoryPage() {
             </p>
           </div>
           <MaterialImage
-            src="/images/factory/production-workshop.png"
+            src="/images/factory/warehouse-shipment.png"
             alt="Camouflage hook and loop fabric factory workshop"
             className="aspect-[4/3] border border-[var(--border)]"
             priority
@@ -74,7 +74,7 @@ export default function FactoryPage() {
           </div>
           <div>
             <MaterialImage
-              src="/images/factory/quality-inspection.png"
+              src="/images/factory/production-workshop.png"
               alt="Quality inspection process"
               className="mb-6 aspect-[4/3] border border-[var(--border)]"
             />
