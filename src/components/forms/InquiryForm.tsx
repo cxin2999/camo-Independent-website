@@ -31,11 +31,12 @@ export function InquiryForm({ compact, sourcePage, title }: InquiryFormProps) {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setState("loading");
     setMessage("");
     setErrors({});
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
 
     const response = await fetch("/api/inquiry", {
@@ -58,7 +59,7 @@ export function InquiryForm({ compact, sourcePage, title }: InquiryFormProps) {
 
     setState("success");
     setMessage(data.message);
-    event.currentTarget.reset();
+    form.reset();
   }
 
   return (

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const inquirySchema = z.object({
-  name: z.string().trim().min(2, "Name is required").max(80),
+  name: z.string().trim().max(80).optional().or(z.literal("")),
   company: z.string().trim().max(120).optional().or(z.literal("")),
   email: z.string().trim().email("Enter a valid email address").max(120),
   country: z.string().trim().max(80).optional().or(z.literal("")),
