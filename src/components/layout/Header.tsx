@@ -13,7 +13,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="focus-ring flex items-center gap-3 rounded-[4px]">
-          <img src="/lm-logo.png.png" alt={site.name} className="h-9 w-auto" />
+          <img src="/lm-logo-wb.png" alt={site.name} className="h-9 w-auto" />
           <span className="leading-tight">
             <span className="block text-sm font-bold uppercase tracking-[0.08em]">{site.shortName}</span>
             <span className="hidden text-xs text-[var(--muted)] sm:block">{site.tagline}</span>

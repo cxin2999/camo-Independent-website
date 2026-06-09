@@ -11,9 +11,7 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-[3px] bg-white text-sm font-black text-[var(--charcoal)]">
-                TT
-              </span>
+              <img src="/lm-logo-wb.png" alt={site.name} className="h-9 w-auto" />
               <div>
                 <p className="font-bold uppercase tracking-[0.08em]">{site.name}</p>
                 <p className="text-sm text-white/60">{site.tagline}</p>
