@@ -35,7 +35,7 @@ export default function HomePage() {
       <section className="relative min-h-[calc(100dvh-4rem)] overflow-hidden bg-[var(--charcoal)] text-white">
         <Image
           src="/images/products/camo-loop-fabric-roll.jpg"
-          alt="Camouflage felt hook and loop fabric roll material"
+          alt="Camouflage felt hook and loop fabric material"
           fill
           priority
           sizes="100vw"
@@ -101,16 +101,6 @@ export default function HomePage() {
 
       <section className="page-section surface-grid">
         <Container>
-          <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <SectionHeader
-              eyebrow="Pattern catalog"
-              title="Camouflage samples shown as material swatches."
-              description="Use these common directions as a starting point. Custom pattern, color, and repeat can be discussed for OEM projects."
-            />
-            <Button href="/customization" variant="secondary">
-              Start Customization
-            </Button>
-          </div>
           <PatternCatalog includeMilitaryPatterns />
         </Container>
       </section>

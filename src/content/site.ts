@@ -1,6 +1,6 @@
 export const site = {
   name: "TacticalTex Materials",
-  shortName: "TacticalTex",
+  shortName: "Luming TacticalTex",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
   email: "vickyelaine61@gmail.com",
   whatsapp: "+86 155 2760 5359",

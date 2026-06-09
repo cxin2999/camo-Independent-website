@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { militaryPatternNotice, militaryPatterns } from "@/content/military-patterns";
 import { patterns } from "@/content/patterns";
+import {Button} from "@/components/ui/Button";
 
 type PatternCatalogProps = {
   includeMilitaryPatterns?: boolean;
@@ -10,33 +11,9 @@ type PatternCatalogProps = {
 export function PatternCatalog({ includeMilitaryPatterns = false }: PatternCatalogProps) {
   return (
     <div className="grid gap-8">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {patterns.map((pattern) => (
-          <Link
-            key={pattern.name}
-            href="/customization"
-            className="group border border-[var(--border)] bg-[var(--surface)] p-2 transition hover:border-[var(--olive)]"
-          >
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={pattern.image}
-                alt={`${pattern.name} camouflage pattern`}
-                fill
-                sizes="20vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="p-3">
-              <p className="font-semibold">{pattern.name}</p>
-              <p className="mt-1 text-xs leading-5 text-[var(--muted)]">{pattern.terrain}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
-
       {includeMilitaryPatterns ? (
         <div>
-          <div className="mb-5 flex flex-col gap-3 border-t border-[var(--border)] pt-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="mb-5 flex flex-col gap-3 border-[var(--border)] pt-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--olive)]">
                 Military camouflage types
@@ -49,6 +26,9 @@ export function PatternCatalog({ includeMilitaryPatterns = false }: PatternCatal
               These pattern types help buyers describe color family, terrain, and repeat style when
               requesting custom loop fabric.
             </p>
+              <Button href="/customization" variant="secondary">
+                  Start Customization
+              </Button>
           </div>
           <div className="mb-5 border border-[var(--border)] bg-[#eef7df] p-4 text-sm leading-6 text-[var(--olive-dark)]">
             {militaryPatternNotice}

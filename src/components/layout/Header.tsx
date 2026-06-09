@@ -13,9 +13,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="focus-ring flex items-center gap-3 rounded-[4px]">
-          <span className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-[var(--charcoal)] text-sm font-black text-white">
-            TT
-          </span>
+          <img src="/lm-logo.png.png" alt={site.name} className="h-9 w-auto" />
           <span className="leading-tight">
             <span className="block text-sm font-bold uppercase tracking-[0.08em]">{site.shortName}</span>
             <span className="hidden text-xs text-[var(--muted)] sm:block">{site.tagline}</span>
@@ -35,9 +33,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a className="mono text-xs text-[var(--muted)] hover:text-[var(--charcoal)]" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
           <Link
             href="/contact"
             className="focus-ring rounded-[4px] bg-[var(--olive)] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[var(--orange)] active:translate-y-px"
