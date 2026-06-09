@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle, Factory, Package, Ruler, Scissors, ShieldCheck, Swatches } from "@phosphor-icons/react/dist/ssr";
 import { ApplicationCards } from "@/components/sections/ApplicationCards";
 import { PatternCatalog } from "@/components/sections/PatternCatalog";
@@ -73,35 +74,23 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="page-section bg-[var(--surface)]">
-        <Container>
-          <SectionHeader
-            eyebrow="Product strengths"
-            title="Built around material clarity, specification, and factory supply."
-            description="The site is designed for procurement buyers who need to understand material options quickly before sending requirements."
-          />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.title}
-                  className="stagger-in border border-[var(--border)] bg-[var(--surface)] p-5"
-                  style={{ "--i": index } as React.CSSProperties}
-                >
-                  <Icon size={28} className="mb-5 text-[var(--olive)]" />
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
       <section className="page-section surface-grid">
         <Container>
           <PatternCatalog includeMilitaryPatterns />
+        </Container>
+      </section>
+
+      <section className="page-section dark-texture">
+        <Container>
+          <SectionHeader
+              eyebrow="Industry applications"
+              title="Reference applications for tactical and outdoor material buyers."
+              description={site.disclaimer}
+              light
+          />
+          <div className="mt-10">
+            <ApplicationCards />
+          </div>
         </Container>
       </section>
 
@@ -121,25 +110,38 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="page-section dark-texture">
+      <section className="page-section bg-[var(--surface)]">
         <Container>
           <SectionHeader
-            eyebrow="Industry applications"
-            title="Reference applications for tactical and outdoor material buyers."
-            description={site.disclaimer}
-            light
+              eyebrow="Product strengths"
+              title="Built around material clarity, specification, and factory supply."
+              description="The site is designed for procurement buyers who need to understand material options quickly before sending requirements."
           />
-          <div className="mt-10">
-            <ApplicationCards />
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {highlights.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                  <div
+                      key={item.title}
+                      className="stagger-in border border-[var(--border)] bg-[var(--surface)] p-5"
+                      style={{ "--i": index } as React.CSSProperties}
+                  >
+                    <Icon size={28} className="mb-5 text-[var(--olive)]" />
+                    <h3 className="text-lg font-semibold">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
+                  </div>
+              );
+            })}
           </div>
         </Container>
       </section>
 
       <section className="page-section bg-[var(--surface)]">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center">
+          <Link href="/factory" className="block cursor-pointer transition hover:opacity-90">
+            <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center">
             <MaterialImage
-              src="/images/factory/production-workshop.png"
+              src="/images/factory/warehouse-shipment.png"
               alt="Factory workshop for camouflage hook and loop fabric production"
               className="aspect-[4/3] border border-[var(--border)]"
             />
@@ -160,6 +162,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+          </Link>
         </Container>
       </section>
 

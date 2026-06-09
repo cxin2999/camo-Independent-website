@@ -74,8 +74,8 @@ export default function FactoryPage() {
           </div>
           <div>
             <MaterialImage
-              src="/images/factory/production-workshop.png"
-              alt="Quality inspection process"
+              src="/images/factory/all-materials-wall.jpg"
+              alt="Materials"
               className="mb-6 aspect-[4/3] border border-[var(--border)]"
             />
             <div className="grid gap-3">
