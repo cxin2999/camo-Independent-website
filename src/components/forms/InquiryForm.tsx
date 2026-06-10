@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { trackLead } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type InquiryFormProps = {
@@ -64,6 +65,11 @@ export function InquiryForm({ compact, sourcePage, title }: InquiryFormProps) {
 
       setState("success");
       setMessage(data.message);
+      trackLead(
+        sourcePage,
+        typeof payload.productInterest === "string" ? payload.productInterest : undefined,
+        compact ? "compact_inquiry_form" : "inquiry_form"
+      );
       form.reset();
       startedAtRef.current = Date.now();
     } catch {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Clock, EnvelopeSimple, MapPin, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -13,15 +14,16 @@ export const metadata: Metadata = {
 };
 
 const contactCards = [
-  { label: "Email", value: site.email, href: `mailto:${site.email}`, icon: EnvelopeSimple },
+  { label: "Email", value: site.email, href: `mailto:${site.email}`, icon: EnvelopeSimple, method: "email" },
   {
     label: "WhatsApp",
     value: site.whatsapp,
     href: `https://wa.me/${site.whatsapp.replace(/\D/g, "")}`,
     icon: WhatsappLogo,
-    openInNewTab: true
+    openInNewTab: true,
+    method: "whatsapp"
   },
-  { label: "Phone", value: site.phone, href: `tel:${site.phone}`, icon: Phone },
+  { label: "Phone", value: site.phone, href: `tel:${site.phone}`, icon: Phone, method: "phone" },
   { label: "Address", value: site.address, href: null, icon: MapPin },
   { label: "Business Hours", value: "Mon-Fri, 07:00-22:00 China Time", href: null, icon: Clock }
 ];
@@ -60,14 +62,16 @@ export default function ContactPage() {
               );
 
               return card.href ? (
-                <a
+                <TrackedLink
                   key={card.label}
                   href={card.href}
                   target={card.openInNewTab ? "_blank" : undefined}
                   rel={card.openInNewTab ? "noopener noreferrer" : undefined}
+                  trackingEvent="contact_click"
+                  trackingParams={{ method: card.method, location: "contact_page_card" }}
                 >
                   {content}
-                </a>
+                </TrackedLink>
               ) : (
                 <div key={card.label}>{content}</div>
               );
