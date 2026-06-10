@@ -4,6 +4,7 @@ import { CheckCircle, Factory, Package, Ruler, Scissors, ShieldCheck, Swatches }
 import { ApplicationCards } from "@/components/sections/ApplicationCards";
 import { PatternCatalog } from "@/components/sections/PatternCatalog";
 import { ProductGrid } from "@/components/sections/ProductGrid";
+import { TrackedButtonLink } from "@/components/analytics/TrackedButtonLink";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -57,7 +58,13 @@ export default function HomePage() {
               backpacks, and outdoor equipment.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/contact">Request a Quote</Button>
+              <TrackedButtonLink
+                href="/contact"
+                trackingEvent="quote_click"
+                trackingParams={{ location: "home_hero" }}
+              >
+                Request a Quote
+              </TrackedButtonLink>
               <Button href="/products" variant="quiet">
                 View Products
               </Button>

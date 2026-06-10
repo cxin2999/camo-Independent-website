@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { TrackedButtonLink } from "@/components/analytics/TrackedButtonLink";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -63,7 +64,13 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               ))}
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/contact">Request Quote</Button>
+              <TrackedButtonLink
+                href="/contact"
+                trackingEvent="quote_click"
+                trackingParams={{ location: "product_detail", product_name: product.name }}
+              >
+                Request Quote
+              </TrackedButtonLink>
               <Button href="/products" variant="secondary">
                 Back to Products
               </Button>

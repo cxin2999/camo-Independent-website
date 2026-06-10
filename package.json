@@ -10,6 +10,7 @@
     "generate-assets": "node scripts/generate-assets.mjs"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.9",
     "@phosphor-icons/react": "^2.1.10",
     "next": "^15.3.3",
     "react": "^19.0.0",

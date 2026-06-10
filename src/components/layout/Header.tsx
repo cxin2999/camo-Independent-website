@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { List, X } from "@phosphor-icons/react";
 import { navItems, site } from "@/content/site";
+import { trackContactClick, trackQuoteClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -35,6 +36,7 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="/contact"
+            onClick={() => trackQuoteClick("header_desktop")}
             className="focus-ring rounded-[4px] bg-[var(--olive)] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[var(--orange)] active:translate-y-px"
           >
             Request a Quote
@@ -69,12 +71,19 @@ export function Header() {
             </Link>
           ))}
           <div className="grid gap-3 pt-5">
-            <a className="mono text-sm text-[var(--muted)]" href={`mailto:${site.email}`}>
+            <a
+              className="mono text-sm text-[var(--muted)]"
+              href={`mailto:${site.email}`}
+              onClick={() => trackContactClick("email", "mobile_header")}
+            >
               {site.email}
             </a>
             <Link
               href="/contact"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                trackQuoteClick("header_mobile");
+              }}
               className="rounded-[4px] bg-[var(--olive)] px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.08em] text-white"
             >
               Request a Quote
